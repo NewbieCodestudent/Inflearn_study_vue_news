@@ -1,0 +1,63 @@
+[ 필요 API ]
+npm
+vue : npm i vue
+vuex : npm i vuex
+
+[ vue 양식 ]
+<template>
+  // 실제 HTML 태그가 들어가는 템플릿 
+  <breadcrumb :depth1="'test1'" :depth2="'test2'"/> 
+</template> 
+
+<script> 
+// 스크립트를 정의하는 부분 
+import Breadcrumb from './components/Breadcrumb' 
+
+// export default 된 부분이 외부에서 import로 사용할 수 있게 된다. 
+export default { 
+  // .vue 내부에서 사용되는 model 
+  // model 기반으로 vue는 동작된다. 
+  name: 'example', 
+  data() { 
+    return { 
+     // 해당 뷰에서 사용할 데이터를 지님
+    } 
+  }, 
+  components: { 
+   // import한 vue 템플릿을 하위 템플릿으로 사용
+    Breadcrumb 
+  }, 
+  props: { 
+   // 하위 컨포넌트의 템플릿에서 상위 컨포넌트의 데이터를 전달받을 수 있도록 변수를 정의하는 곳
+    // breadcrumb태그에서 파라미터를 import로 선언한 하위 컨포넌트인 Breadcrumb.vue에서 
+    // 아래와 같이 선언하여 사용할 수 있다. 
+    depth1: { 
+      type: String 
+    }, 
+    depth2: { 
+      type: String 
+    } 
+    // this.depth1 = 'test1', this.depth2 = 'test2' 값을 가질 수 있다. 
+  }, 
+  created() { 
+    // DOM이 만들어 지기 전 실행 되는 곳 
+    // Data를 사전에 준비할 경우 사용된다. 
+  }, 
+  mounted() { 
+    // DOM에 해당 .vue가 들어가게 되면 실행 되는 곳 
+    // onload 상태와 동일하다. DOM 이후에 조작할 경우 이곳에서 수행 
+  }, 
+  computed: { 
+    // 값이 자주 변경됨에 따라, 관련되어 데이터 혹은 view가 바뀌어야 할 경우 사용 
+    // method를 바로 연결하면 tic 단위로 계속 실행되기 때문에, 값이 변경할 때만 수행되고, 
+    // cache로 남는 computed를 활용하는 것이 성능에 좋음 
+  }, 
+  methods: { 
+    // .vue 내부에서 사용되는 함수를 정의한다. 
+    // 이벤트에 따라 실행하거나, 내부적으로 사용되는 함수들을 정의한다. 
+  } 
+} 
+</script> 
+
+<style> 
+</style>
