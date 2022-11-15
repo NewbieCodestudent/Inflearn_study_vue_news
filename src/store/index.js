@@ -9,6 +9,9 @@ export default createStore({
     jobs: []
   },
   getters: {
+    fetchedAsk (state) {
+      return state.ask
+    }
   },
   // mutations : actions의 결과값을 담는 기능
   mutations: {
