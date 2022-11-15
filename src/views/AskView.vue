@@ -1,12 +1,19 @@
 <template>
   <div>
-    Ask
+    <div v-for="item in this.$store.state.ask" v-bind:key="item">{{item.title}}</div>
   </div>
 </template>
 
 <script>
 export default {
-
+  created () {
+    this.$store.dispatch('FETCH_ASK')
+    // fetchAskList().then(response => {
+    //   this.ask = response.data
+    // }).catch(error => {
+    //   console.log(error)
+    // })
+  }
 }
 </script>
 
