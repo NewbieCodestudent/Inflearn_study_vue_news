@@ -1,10 +1,15 @@
 <template>
   <div>
-    <div v-for="user in this.$store.state.news" v-bind:key="user">{{user.title}}</div>
+    <!-- <div v-for="user in this.$store.state.news" v-bind:key="user">{{user.title}}</div> -->
+    <p v-for="item in newsItems" v-bind:key="item">
+      <a v-bind:href="item.url">{{item.title}}</a>
+      <small>{{item.time_ago}} by {{item.user}}</small>
+    </p>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 // import { fetchNewsList } from '../api/index.js'
 
 export default {
@@ -18,6 +23,11 @@ export default {
     // }).catch(error => {
     //  console.log(error)
     // })
+  },
+  computed: {
+    ...mapGetters({
+      newsItems: 'fetchedNews'
+    })
   }
 }
 </script>

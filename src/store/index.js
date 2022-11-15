@@ -10,8 +10,14 @@ export default createStore({
     jobs: []
   },
   getters: {
+    fetchedNews (state) {
+      return state.news
+    },
     fetchedAsk (state) {
       return state.ask
+    },
+    fetchedJobs (state) {
+      return state.jobs
     }
   },
   // mutations : actions의 결과값을 담는 기능
