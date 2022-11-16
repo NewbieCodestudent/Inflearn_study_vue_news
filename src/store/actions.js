@@ -2,7 +2,7 @@ import { fetchNewsList, fetchAskList, fetchJobsList, fetchUserInfo, fetchItemInf
 export default {
   FETCH_NEWS (context) {
     fetchNewsList().then(response => {
-      console.log(response.data)
+      // console.log(response.data)
       // 결과값을 mutations에 담는 기능
       context.commit('SET_NEWS', response.data)
     }).catch(error => {
@@ -11,7 +11,7 @@ export default {
   },
   FETCH_ASK (context) {
     fetchAskList().then(response => {
-      console.log(response)
+      // console.log(response)
       context.commit('SET_ASK', response.data)
     }).catch(error => {
       console.log(error)
@@ -21,7 +21,7 @@ export default {
   // 예제 : let { items1, items2, items3 } = obj
   FETCH_JOBS ({ commit }) {
     fetchJobsList().then(({ data }) => {
-      console.log(data)
+      // console.log(data)
       commit('SET_JOBS', data)
     }).catch(error => {
       console.log(error)
@@ -29,7 +29,7 @@ export default {
   },
   FETCH_USER ({ commit }, name) {
     fetchUserInfo(name).then(({ data }) => {
-      console.log(data)
+      // console.log(data)
       commit('SET_USER', data)
     }).catch(error => {
       console.log(error)
@@ -37,7 +37,7 @@ export default {
   },
   FETCH_ITEM ({ commit }, item) {
     fetchItemInfo(item).then(({ data }) => {
-      console.log(data)
+      // console.log(data)
       commit('SET_ITEM', data)
     }).catch(error => {
       console.log(error)

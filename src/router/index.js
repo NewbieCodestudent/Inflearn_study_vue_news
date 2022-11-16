@@ -27,10 +27,12 @@ const routes = [
   },
   {
     path: '/item/:id',
+    name: 'item',
     component: ItemView
   },
   {
     path: '/user/:id',
+    name: 'user',
     component: UserView
   }
 ]
