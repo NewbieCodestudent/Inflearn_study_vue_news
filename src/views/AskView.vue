@@ -3,7 +3,7 @@
     <!-- map의 방법 1 -->
     <!-- <div v-for="item in askItems" v-bind:key="item">{{item.title}}</div> -->
     <p v-for="item in askItems" v-bind:key="item">
-      <a v-bind:href="item.url">{{item.title}}</a>
+      <router-link v-bind:to="`/item/${item.id}`">{{item.title}}</router-link>
       <small>{{item.time_ago}} by {{item.user}}</small>
     </p>
   </div>
