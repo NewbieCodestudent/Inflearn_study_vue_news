@@ -48,14 +48,15 @@ export default {
       jobsItems: 'fetchedJobs'
     }),
     ListItems () {
-      const name = this.$route.name
-      if (name === 'news') {
-        return this.newsItems
-      } else if (name === 'ask') {
-        return this.askItems
-      } else {
-        return this.jobsItems
-      }
+      return this.$store.state.list
+      // const name = this.$route.name
+      // if (name === 'news') {
+      //   return this.newsItems
+      // } else if (name === 'ask') {
+      //   return this.askItems
+      // } else {
+      //   return this.jobsItems
+      // }
     }
   }
 }

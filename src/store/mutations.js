@@ -15,10 +15,15 @@ export default {
   SET_ITEM (state, data) {
     state.item = data
   },
+  // spinNer를 위한 mutation
   START_LOADING (state) {
     state.loadingStatus = true
   },
   END_LOADING (state) {
     state.loadingStatus = false
+  },
+  // ListVuew를 위한 mutation
+  SET_LIST (state, list) {
+    state.list = list
   }
 }

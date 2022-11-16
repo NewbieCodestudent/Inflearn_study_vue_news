@@ -18,7 +18,7 @@ import 변수명 from './bus.js';
 vue3버전에서는 이벤트 버스를 지원하지 않는다...
 $on 기능이 되지 않는다.
 */
-	
+
 import { createApp } from 'vue'
 import App from './App.vue'
 import mitt from 'mitt'

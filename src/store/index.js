@@ -10,7 +10,8 @@ export default createStore({
     jobs: [],
     user: {},
     item: {},
-    loadingStatus: 'false'
+    loadingStatus: '',
+    list: []
   },
   getters: {
     fetchedNews (state) {

@@ -1,4 +1,4 @@
-import { fetchNewsList, fetchAskList, fetchJobsList, fetchUserInfo, fetchItemInfo } from '../api/index.js'
+import { fetchNewsList, fetchAskList, fetchJobsList, fetchUserInfo, fetchItemInfo, fetchList } from '../api/index.js'
 export default {
   FETCH_NEWS (context) {
     fetchNewsList().then(response => {
@@ -39,6 +39,14 @@ export default {
     fetchItemInfo(item).then(({ data }) => {
       // console.log(data)
       commit('SET_ITEM', data)
+    }).catch(error => {
+      console.log(error)
+    })
+  },
+  // ListView에 활용
+  FETCH_LIST ({ commit }, pageName) {
+    fetchList(pageName).then(({ data }) => {
+      commit('SET_LIST', data)
     }).catch(error => {
       console.log(error)
     })

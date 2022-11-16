@@ -25,11 +25,16 @@ function fetchUserInfo (userName) {
 function fetchItemInfo (item) {
   return axios.get(`${config.baseUrl}item/${item}.json`)
 }
+// ListView를 위한 action
+function fetchList (pageName) {
+  return axios.get(`${config.baseUrl}${pageName}/1.json`)
+}
 
 export {
   fetchNewsList,
   fetchAskList,
   fetchJobsList,
   fetchUserInfo,
-  fetchItemInfo
+  fetchItemInfo,
+  fetchList
 }
