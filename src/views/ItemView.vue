@@ -2,19 +2,15 @@
   <div>
     <!-- 질문 상세 정보 영역 -->
     <section>
-      <div class="user-container">
-        <div>
-          <i class="fa-solid fa-user"></i>
-        </div>
-        <div class="user-description">
+      <!-- 사용자 정보 -->
+      <user-profile v-bind:info="items">
+        <template v-slot:username>
           <router-link v-bind:to="`/user/${items.user}`">
             {{items.user}}
           </router-link>
-          <div class="time">
-            {{items.time_ago}}
-          </div>
-        </div>
-      </div>
+        </template>
+        <template v-slot:time>{{`Posted : ${items.time_ago}`}}</template>
+      </user-profile>
       <h2>{{items.title}}</h2>
     </section>
     <!-- 질문 댓글 영역 -->
@@ -26,6 +22,7 @@
 </template>
 
 <script>
+import UserProfile from '../components/UserProfile.vue'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -38,23 +35,12 @@ export default {
     ...mapGetters({
       items: 'fetchedItem'
     })
+  },
+  components: {
+    UserProfile: UserProfile
   }
 }
 </script>
 
 <style scoped>
-.user-container {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem;
-}
-.fa-user {
-  font-size: 2.5rem;
-}
-.user-description{
-  padding-left: 8px;
-}
-.time {
-  font-size: 0.7rem;
-}
 </style>

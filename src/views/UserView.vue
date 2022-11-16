@@ -1,12 +1,19 @@
 <template>
   <div>
-    <p>name : {{userInfo.id}}</p>
-    <p>karma : {{userInfo.karma}}</p>
-    <p>created : {{userInfo.created}}</p>
+    <UserProfile v-bind:info="userInfo">
+      <template v-slot:username>{{userInfo.id}}</template>
+      <template v-slot:time>
+        <span>{{`Joined : ${userInfo.created}, `}}</span>
+      </template>
+      <template v-slot:karma>
+        <span>{{`karma : ${userInfo.karma}`}}</span>
+      </template>
+    </UserProfile>
   </div>
 </template>
 
 <script>
+import UserProfile from '../components/UserProfile.vue'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -19,10 +26,12 @@ export default {
     ...mapGetters({
       userInfo: 'fetchedUser'
     })
+  },
+  components: {
+    UserProfile: UserProfile
   }
 }
 </script>
 
 <style>
-
 </style>

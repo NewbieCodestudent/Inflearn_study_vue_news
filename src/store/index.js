@@ -9,7 +9,7 @@ export default createStore({
     ask: [],
     jobs: [],
     user: {},
-    item: []
+    item: {}
   },
   getters: {
     fetchedNews (state) {
