@@ -13,6 +13,11 @@ export default new Vue();
 app.vue에서 받을때 자신이 사용할 변수명으로 재정의 해서 받을 수 있다.
 import 변수명 from './bus.js';
 */
+
+/*
+vue3버전에서는 이벤트 버스를 지원하지 않는다...
+$on 기능이 되지 않는다.
+*/
 	
 import { createApp } from 'vue'
 import App from './App.vue'

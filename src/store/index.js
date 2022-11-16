@@ -10,7 +10,7 @@ export default createStore({
     jobs: [],
     user: {},
     item: {},
-    loading_status: 'false'
+    loadingStatus: 'false'
   },
   getters: {
     fetchedNews (state) {
@@ -27,6 +27,9 @@ export default createStore({
     },
     fetchedItem (state) {
       return state.item
+    },
+    fetchedLoading (state) {
+      return state.loadingStatus
     }
   },
   // mutations : actions의 결과값을 담는 기능

@@ -14,24 +14,17 @@
 <script>
 import ToolBar from './components/ToolBar.vue'
 import SpinNer from './components/SpinNer.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
     ToolBar,
     SpinNer
   },
-  data() {
-    return {
-      loadingStatus: true
-    }
-  },
-  methods: {
-    startSpinner() {
-      this.loadingStatus = true
-    },
-    endSpinner() {
-      this.loadingStatus = false
-    }
+  computed: {
+    ...mapGetters({
+      loadingStatus: 'fetchedLoading'
+    })
   }
 }
 </script>

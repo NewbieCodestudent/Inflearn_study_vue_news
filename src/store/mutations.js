@@ -15,7 +15,10 @@ export default {
   SET_ITEM (state, data) {
     state.item = data
   },
-  LOADING_STATUS (state, loadingStatus) {
-    state.loading_status = loadingStatus
+  START_LOADING (state) {
+    state.loadingStatus = true
+  },
+  END_LOADING (state) {
+    state.loadingStatus = false
   }
 }

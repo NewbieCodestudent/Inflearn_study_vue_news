@@ -12,7 +12,7 @@ export default {
     ListItem: ListItem
   },
   created () {
-    this.$store.dispatch('FETCH_JBOS')
+    this.$store.dispatch('FETCH_JOBS')
   }
 }
 </script>
