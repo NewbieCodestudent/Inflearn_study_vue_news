@@ -19,10 +19,10 @@ export default {
   },
   // Destructuring(구조분해문법) : obj.items을 {}를 이용해서 바로 꺼내오는 방법
   // 예제 : let { items1, items2, items3 } = obj
-  FETCH_JOBS ({ commit }) {
-    fetchJobsList().then(({ data }) => {
+  FETCH_JOBS (context) {
+    fetchJobsList().then(response => {
       // console.log(data)
-      commit('SET_JOBS', data)
+      context.commit('SET_JOBS', response.data)
     }).catch(error => {
       console.log(error)
     })

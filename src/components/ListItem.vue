@@ -57,20 +57,6 @@ export default {
         return this.jobsItems
       }
     }
-  },
-  created () {
-    // 라우트에서 정보 가져오기
-    // console.log(this.$route.path)
-    // console.log(this.$route.name)
-    const name = this.$route.name
-    if (name === 'news') {
-      this.$store.dispatch('FETCH_NEWS')
-      this.items = this.newsItems
-    } else if (name === 'ask') {
-      this.$store.dispatch('FETCH_ASK')
-    } else if (name === 'jobs') {
-      this.$store.dispatch('FETCH_JOBS')
-    }
   }
 }
 </script>

@@ -1,18 +1,37 @@
 <template>
   <div id="app">
     <ToolBar></ToolBar>
-    <transition name="page">
-      <router-view></router-view>
-    </transition>
+    <!-- vue3 transition router-view 사용방법 -->
+    <router-view v-slot="{ Component }">
+      <transition>
+        <component :is="Component" />
+      </transition>
+    </router-view>
+    <SpinNer v-bind:loading="loadingStatus"></SpinNer>
   </div>
 </template>
 
 <script>
 import ToolBar from './components/ToolBar.vue'
+import SpinNer from './components/SpinNer.vue'
 
 export default {
   components: {
-    ToolBar
+    ToolBar,
+    SpinNer
+  },
+  data() {
+    return {
+      loadingStatus: true
+    }
+  },
+  methods: {
+    startSpinner() {
+      this.loadingStatus = true
+    },
+    endSpinner() {
+      this.loadingStatus = false
+    }
   }
 }
 </script>

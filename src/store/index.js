@@ -9,7 +9,8 @@ export default createStore({
     ask: [],
     jobs: [],
     user: {},
-    item: {}
+    item: {},
+    loading_status: 'false'
   },
   getters: {
     fetchedNews (state) {
