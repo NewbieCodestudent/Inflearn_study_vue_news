@@ -165,3 +165,8 @@ export default {
       2) 데이트 피커
       3) 테이블
       4) 스피너
+
+
+[ 하위 액션 상위에서 받기 ]
+하위 component에서 onclick에 this.$emit('refresh:chart') 을 선언
+상위에서 v-on:refresh:chart="refresh"로 받아서 상위에 methods에서 실행
