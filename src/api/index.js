@@ -11,23 +11,44 @@ function fetchNewsList () {
   // return axios.get(config.baseUrl + 'news/1.json')
   return axios.get(`${config.baseUrl}news/1.json`)
 }
-function fetchAskList () {
+async function fetchAskList () {
   // return axios.get(config.baseUrl + 'news/1.json')
-  return axios.get(`${config.baseUrl}ask/1.json`)
+  try {
+    const response = await axios.get(`${config.baseUrl}ask/1.json`)
+    return response
+  } catch (error) {
+    console.log(error)
+  }
 }
-function fetchJobsList () {
-  // return axios.get(config.baseUrl + 'news/1.json')
-  return axios.get(`${config.baseUrl}jobs/1.json`)
+async function fetchJobsList () {
+  // return axios.get(config.baseUrl + 'news/1.json')\
+  try {
+    const response = await axios.get(`${config.baseUrl}jobs/1.json`)
+    return response
+  } catch (error) {
+    console.log(error)
+  }
 }
-function fetchUserInfo (userName) {
-  return axios.get(`${config.baseUrl}user/${userName}.json`)
+async function fetchUserInfo (userName) {
+  try {
+    const response = await axios.get(`${config.baseUrl}user/${userName}.json`)
+    return response
+  } catch (error) {
+    console.log(error)
+  }
 }
-function fetchItemInfo (item) {
-  return axios.get(`${config.baseUrl}item/${item}.json`)
+async function fetchItemInfo (item) {
+  try {
+    const response = await axios.get(`${config.baseUrl}item/${item}.json`)
+    return response
+  } catch (error) {
+    console.log(error)
+  }
 }
 // ListView를 위한 action
-function fetchList (pageName) {
-  return axios.get(`${config.baseUrl}${pageName}/1.json`)
+async function fetchList (pageName) {
+  const response = await axios.get(`${config.baseUrl}${pageName}/1.json`)
+  return response
 }
 
 export {

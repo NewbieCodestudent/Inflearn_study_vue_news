@@ -26,11 +26,11 @@ import UserProfile from '../components/UserProfile.vue'
 import { mapGetters } from 'vuex'
 
 export default {
-  created () {
-    const item = this.$route.params.id
-    console.log(item)
-    this.$store.dispatch('FETCH_ITEM', item)
-  },
+  // created () {
+  //   const item = this.$route.params.id
+  //   console.log(item)
+  //   this.$store.dispatch('FETCH_ITEM', item)
+  // },
   computed: {
     ...mapGetters({
       items: 'fetchedItem'

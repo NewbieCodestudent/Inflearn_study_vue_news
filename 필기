@@ -61,3 +61,107 @@ export default {
 
 <style> 
 </style>
+
+[ 데이터 호출 시점 ]
+호출 순서 : 1 -> 2
+
+1. 라우터 네비게이션 가드
+  - 특정 URL로 접근하기 전의 동작을 정의하는 속성(함수)
+  - router.beforeEach
+  - beforeRouteEnter
+  - beforeRouteUpdate
+  - beforeRouteLeave
+
+2. 컴포넌트 라이프 사이클 훅
+  - created 활용 : 컴포넌트가 생성되자마자 호출되는 로직
+
+
+[ 자바스크립트의 비동기 처리 패턴 ]
+1. 기존에 자바스크립트의 call back
+  $.get('url주소', function(result){
+    if(result === 'admin') {
+      $.get('ulr주소' function(product){
+        console.log(product)
+      })
+    }
+  })
+
+2. promise 형식 : 함수들을 정의하고 그 함수들을 호출하는 형식
+  function getId() {
+    return new Promise(function(resoleve, reject) {
+      $.get('url주소', function(id){
+        resoleve(id)
+      })
+    })
+  }
+
+  function getProduct() {
+    //...
+  }
+
+  function logProduct() {
+    //...
+  }
+
+  getId().then(function(id){
+    if(id === 'admin') {
+      $.get('ulr주소' function(product){
+        console.log(product)
+      })
+    }
+  })
+  .then(getProduct)
+  .then(logProduct)
+  .catch(function(error){
+    console.log(error)
+  })
+
+3. async & await 형식
+  예제1)
+  async function fetchData() {
+    let list = await getUserList()
+    console.log(list) // userList가 출력된다.
+  }
+
+  function getUserList() {
+    return new Promise(function(resoleve, reject) {
+      let userList = ['user1', 'user2', 'user3']
+      resoleve(userList)
+    })
+  }
+
+  예제2)
+  data() {
+    return {
+      items: []
+    }
+  }
+
+  async loginUser1() {
+    let response = await axios.get('https://jsonplaceholder.typicode.com/users/1')
+    if(response.data.id === 1) {
+      let list = await axios.get('http://jsonplaceholder.typicode.com/todos')
+      this.items = list.data
+    }
+  }
+
+  예외처리는 try catch로 실행
+  async loginUser1() {
+    try {
+      let response = await axios.get('https://jsonplaceholder.typicode.com/users/1')
+      if(response.data.id === 1) {
+        let list = await axios.get('http://jsonplaceholder.typicode.com/todos')
+        this.items = list.data
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  [ 외부 라이브러리 모듈화 ]
+    - 이유 : Vue.js 관련 라이브러리가 없을 때 일반 라이브러리를 결합할 수 있어야 한다.
+    - 종류
+      1) 차트
+      2) 데이트 피커
+      3) 테이블
+      4) 스피너

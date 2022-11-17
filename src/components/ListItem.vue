@@ -38,15 +38,15 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+// import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters({
-      newsItems: 'fetchedNews',
-      askItems: 'fetchedAsk',
-      jobsItems: 'fetchedJobs'
-    }),
+    // ...mapGetters({
+    //   newsItems: 'fetchedNews',
+    //   askItems: 'fetchedAsk',
+    //   jobsItems: 'fetchedJobs'
+    // }),
     ListItems () {
       return this.$store.state.list
       // const name = this.$route.name

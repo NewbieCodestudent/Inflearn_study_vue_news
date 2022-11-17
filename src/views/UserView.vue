@@ -17,11 +17,11 @@ import UserProfile from '../components/UserProfile.vue'
 import { mapGetters } from 'vuex'
 
 export default {
-  created () {
-    // params값 불러오기
-    const userName = this.$route.params.id
-    this.$store.dispatch('FETCH_USER', userName)
-  },
+  // created () {
+  //   // params값 불러오기
+  //   const userName = this.$route.params.id
+  //   this.$store.dispatch('FETCH_USER', userName)
+  // },
   computed: {
     ...mapGetters({
       userInfo: 'fetchedUser'
